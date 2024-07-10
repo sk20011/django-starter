@@ -8,13 +8,13 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=42)
     apellido = models.CharField(max_length=50)
     direccion = models.CharField(max_length=255)
-    telefono = models.CharField(max_length=12, blank=True, null=True)
+    telefono = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField(max_length=255)
     NIF = models.CharField(max_length=12)
     tipo = models.CharField(max_length=12, choices=TIPO_OPCIONES, default="particular")
     
     def __str__(self):
-        return f"{self.nombre} {self.apellido}"
+        return f"{self.nombre} {self.apellido} {self.NIF}"
 
 class Factura(models.Model):
     importe = models.DecimalField(max_digits=10, decimal_places=2)

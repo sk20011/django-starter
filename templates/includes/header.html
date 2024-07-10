@@ -8,6 +8,7 @@
     <nav class="block relative">
         <ul class="navitems flex items-center justify-center h-full">
             {% if request.user.is_authenticated %}
+            <li><a href="{% url 'facturas_clientes' %}">Facturas Clientes</a></li>
             <li><a href="/">Inicio</a></li>
             <li x-data="{ dropdownOpen: false }" class="relative">
                 <a @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false" class="cursor-pointer select-none">
@@ -24,13 +25,13 @@
                         <li><a href="{% url 'profile' %}">Mi Perfil</a></li>
                         <li><a href="{% url 'profile-edit' %}">Editar perfil</a></li>
                         <li><a href="{% url 'profile-settings' %}">Ajustes</a></li>
-                        <li><a href="{% url 'account_logout' %}">Cerrar seccion</a></li>
+                        <li><a href="{% url 'account_logout' %}">Cerrar sesión</a></li>
                     </ul>
                 </div>
             </li>
             
             {% else %}
-            <li><a href="{% url 'account_login' %}">Iniciar seccion</a></li>
+            <li><a href="{% url 'account_login' %}">Iniciar sesión</a></li>
             <li><a href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}">Registrate</a></li>
             {% endif %}
         </ul>
